@@ -1,16 +1,17 @@
 import './Contact.css';
 
+// TODO: Replace placeholder phone number and email with real business contact details before going live.
 const contactItems = [
   {
     icon: '📞',
     label: 'Call or Text',
-    value: '(816) 555-0100',
+    value: '(816) 555-0100', // TODO: replace with real number
     href: 'tel:+18165550100',
   },
   {
     icon: '✉️',
     label: 'Email Us',
-    value: 'info@jackofalltradeskc.com',
+    value: 'info@jackofalltradeskc.com', // TODO: confirm mailbox is active
     href: 'mailto:info@jackofalltradeskc.com',
   },
   {

@@ -17,12 +17,10 @@ export default function Schedule() {
     e.preventDefault();
 
     if (!FORMSPREE_ENDPOINT) {
-      // Formspree not configured — inform developer in console
       console.warn(
         'Formspree endpoint not configured. Set VITE_FORMSPREE_ID in your Vercel environment variables.'
       );
-      setStatus('success');
-      (e.target as HTMLFormElement).reset();
+      setStatus('error');
       return;
     }
 
