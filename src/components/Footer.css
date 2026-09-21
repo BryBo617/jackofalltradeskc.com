@@ -1,0 +1,40 @@
+.footer {
+  background: #060d1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.footer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.footer-brand .brand-icon {
+  font-size: 1.2rem;
+}
+
+.footer-tagline {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-copy {
+  color: #334155;
+  font-size: 0.8rem;
+  margin: 0;
+}
