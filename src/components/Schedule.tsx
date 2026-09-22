@@ -1,48 +1,8 @@
-import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import './Schedule.css';
 
-// Replace YOUR_FORM_ID with the Formspree form ID created at https://formspree.io
-// e.g. "xpwzgkjr" — set via FORMSPREE_ID environment variable in Vercel
-const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_ID
-  ? `https://formspree.io/f/${import.meta.env.FORMSPREE_ID}`
-  : null;
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
-
 export default function Schedule() {
-  const [status, setStatus] = useState<FormStatus>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!FORMSPREE_ENDPOINT) {
-      console.warn(
-        'Formspree endpoint not configured. Set FORMSPREE_ID in your Vercel environment variables.',
-      );
-      setStatus('error');
-      return;
-    }
-
-    setStatus('submitting');
-    const data = new FormData(e.target as HTMLFormElement);
-
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      });
-
-      if (res.ok) {
-        setStatus('success');
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-  };
+  const [state, handleSubmit] = useForm('mqpaqyva');
 
   return (
     <section className="schedule" id="schedule">
@@ -56,7 +16,7 @@ export default function Schedule() {
           </p>
         </div>
         <div className="schedule-form-wrapper">
-          {status === 'success' ? (
+          {state.succeeded ? (
             <div className="form-success">
               <span className="success-icon">✅</span>
               <h3>Request Received!</h3>
@@ -64,12 +24,13 @@ export default function Schedule() {
                 Thank you! We&apos;ll reach out within one business day to
                 confirm your free estimate.
               </p>
-              <button className="btn-submit" onClick={() => setStatus('idle')}>
-                Submit Another Request
-              </button>
             </div>
           ) : (
-            <form className="schedule-form" onSubmit={handleSubmit}>
+            <form
+              onSubmit={handleSubmit}
+              method="POST"
+              className="schedule-form"
+            >
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First Name</label>
@@ -80,6 +41,7 @@ export default function Schedule() {
                     placeholder="Jane"
                     required
                   />
+                  <ValidationError field="firstName" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="lastName">Last Name</label>
@@ -90,6 +52,7 @@ export default function Schedule() {
                     placeholder="Smith"
                     required
                   />
+                  <ValidationError field="lastName" errors={state.errors} />
                 </div>
               </div>
 
@@ -103,6 +66,7 @@ export default function Schedule() {
                     placeholder="jane@example.com"
                     required
                   />
+                  <ValidationError field="email" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number</label>
@@ -113,6 +77,7 @@ export default function Schedule() {
                     placeholder="(816) 555-0100"
                     required
                   />
+                  <ValidationError field="phone" errors={state.errors} />
                 </div>
               </div>
 
@@ -125,6 +90,7 @@ export default function Schedule() {
                   placeholder="1234 Main St, Kansas City, MO"
                   required
                 />
+                <ValidationError field="address" errors={state.errors} />
               </div>
 
               <div className="form-row">
@@ -149,6 +115,7 @@ export default function Schedule() {
                     <option>General Maintenance</option>
                     <option>Multiple / Other</option>
                   </select>
+                  <ValidationError field="serviceType" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="preferredDate">Preferred Date</label>
@@ -157,6 +124,10 @@ export default function Schedule() {
                     name="preferredDate"
                     type="date"
                     required
+                  />
+                  <ValidationError
+                    field="preferredDate"
+                    errors={state.errors}
                   />
                 </div>
               </div>
@@ -182,7 +153,7 @@ export default function Schedule() {
                 </label>
               </div>
 
-              {status === 'error' && (
+              {state.errors?.getAllFieldErrors.length !== 0 && (
                 <p className="form-error">
                   Something went wrong. Please try again or call us directly.
                 </p>
@@ -191,11 +162,9 @@ export default function Schedule() {
               <button
                 type="submit"
                 className="btn-submit"
-                disabled={status === 'submitting'}
+                disabled={state.submitting}
               >
-                {status === 'submitting'
-                  ? 'Sending…'
-                  : 'Request My Free Estimate'}
+                {state.submitting ? 'Sending…' : 'Request My Free Estimate'}
               </button>
             </form>
           )}
