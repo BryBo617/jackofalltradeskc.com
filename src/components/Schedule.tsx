@@ -2,7 +2,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import './Schedule.css';
 
 export default function Schedule() {
-  const [state, handleSubmit] = useForm('mqpaqyva');
+  const [state, handleSubmit, reset] = useForm('mqpaqyva');
 
   return (
     <section className="schedule" id="schedule">
@@ -24,6 +24,9 @@ export default function Schedule() {
                 Thank you! We&apos;ll reach out within one business day to
                 confirm your free estimate.
               </p>
+              <button className="btn-submit" onClick={() => reset()}>
+                Submit Another Request
+              </button>
             </div>
           ) : (
             <form
@@ -153,7 +156,7 @@ export default function Schedule() {
                 </label>
               </div>
 
-              {state.errors?.getAllFieldErrors.length !== 0 && (
+              {state.errors && Object.keys(state.errors).length > 0 && (
                 <p className="form-error">
                   Something went wrong. Please try again or call us directly.
                 </p>
