@@ -2,9 +2,9 @@ import { useState } from 'react';
 import './Schedule.css';
 
 // Replace YOUR_FORM_ID with the Formspree form ID created at https://formspree.io
-// e.g. "xpwzgkjr" — set via VITE_FORMSPREE_ID environment variable in Vercel
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ID
-  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
+// e.g. "xpwzgkjr" — set via FORMSPREE_ID environment variable in Vercel
+const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_ID
+  ? `https://formspree.io/f/${import.meta.env.FORMSPREE_ID}`
   : null;
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -17,7 +17,7 @@ export default function Schedule() {
 
     if (!FORMSPREE_ENDPOINT) {
       console.warn(
-        'Formspree endpoint not configured. Set VITE_FORMSPREE_ID in your Vercel environment variables.',
+        'Formspree endpoint not configured. Set FORMSPREE_ID in your Vercel environment variables.',
       );
       setStatus('error');
       return;

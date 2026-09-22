@@ -34,12 +34,12 @@ npm run preview    # Preview the production build locally
 
 | Variable | Description |
 |---|---|
-| `VITE_FORMSPREE_ID` | Formspree form ID for the appointment request form (e.g. `xpwzgkjr`). Create a free form at [formspree.io](https://formspree.io) and paste the ID here. Set this in your Vercel project settings under **Settings → Environment Variables**. |
+| `FORMSPREE_ID` | Formspree form ID for the appointment request form (e.g. `xpwzgkjr`). Create a free form at [formspree.io](https://formspree.io) and paste the ID here. Set this in your Vercel project settings under **Settings → Environment Variables**. |
 
 ## Site Sections
 
 | Section | Description |
-|---|---|
+| --- | --- |
 | Hero | Headline, tagline, and call-to-action buttons |
 | Services | 8 service cards covering common pre-sale repair categories |
 | About | Company background and key stats |
