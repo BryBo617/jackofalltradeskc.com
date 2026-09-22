@@ -26,10 +26,26 @@ export default function Navbar() {
         <span />
       </button>
       <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-        <li><a href="#services" onClick={(e) => handleNav(e, 'services')}>Services</a></li>
-        <li><a href="#about" onClick={(e) => handleNav(e, 'about')}>About</a></li>
-        <li><a href="#schedule" onClick={(e) => handleNav(e, 'schedule')}>Schedule</a></li>
-        <li><a href="#contact" onClick={(e) => handleNav(e, 'contact')}>Contact</a></li>
+        <li>
+          <a href="#services" onClick={(e) => handleNav(e, 'services')}>
+            Services
+          </a>
+        </li>
+        <li>
+          <a href="#about" onClick={(e) => handleNav(e, 'about')}>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#schedule" onClick={(e) => handleNav(e, 'schedule')}>
+            Schedule
+          </a>
+        </li>
+        <li>
+          <a href="#contact" onClick={(e) => handleNav(e, 'contact')}>
+            Contact
+          </a>
+        </li>
       </ul>
     </nav>
   );

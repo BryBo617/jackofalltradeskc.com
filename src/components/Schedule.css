@@ -57,6 +57,9 @@
   width: 100%;
   box-sizing: border-box;
 }
+.form-group input[type='checkbox'] {
+  width: 2em;
+}
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -90,7 +93,9 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
   width: 100%;
   margin-top: 0.5rem;
 }

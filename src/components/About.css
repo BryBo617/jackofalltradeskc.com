@@ -10,11 +10,8 @@
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+.about-img {
+  width: 600px;
 }
 
 .about-text .section-badge {
@@ -71,4 +68,22 @@
   font-size: 0.85rem;
   color: #94a3b8;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-img {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .about-stats {
+    display: flex;
+    justify-content: center;
+  }
 }

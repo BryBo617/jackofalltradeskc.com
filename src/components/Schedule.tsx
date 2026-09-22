@@ -3,10 +3,9 @@ import './Schedule.css';
 
 // Replace YOUR_FORM_ID with the Formspree form ID created at https://formspree.io
 // e.g. "xpwzgkjr" — set via VITE_FORMSPREE_ID environment variable in Vercel
-const FORMSPREE_ENDPOINT =
-  import.meta.env.VITE_FORMSPREE_ID
-    ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
-    : null;
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ID
+  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
+  : null;
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -18,7 +17,7 @@ export default function Schedule() {
 
     if (!FORMSPREE_ENDPOINT) {
       console.warn(
-        'Formspree endpoint not configured. Set VITE_FORMSPREE_ID in your Vercel environment variables.'
+        'Formspree endpoint not configured. Set VITE_FORMSPREE_ID in your Vercel environment variables.',
       );
       setStatus('error');
       return;
@@ -52,8 +51,8 @@ export default function Schedule() {
           <span className="section-badge">Book Online</span>
           <h2 className="section-title">Schedule a Free Estimate</h2>
           <p className="section-subtitle">
-            Fill out the form below and we&apos;ll get back to you within one business day
-            to confirm your appointment.
+            Fill out the form below and we&apos;ll get back to you within one
+            business day to confirm your appointment.
           </p>
         </div>
         <div className="schedule-form-wrapper">
@@ -62,8 +61,8 @@ export default function Schedule() {
               <span className="success-icon">✅</span>
               <h3>Request Received!</h3>
               <p>
-                Thank you! We&apos;ll reach out within one business day to confirm your
-                free estimate.
+                Thank you! We&apos;ll reach out within one business day to
+                confirm your free estimate.
               </p>
               <button className="btn-submit" onClick={() => setStatus('idle')}>
                 Submit Another Request
@@ -131,8 +130,15 @@ export default function Schedule() {
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="serviceType">Service Type</label>
-                  <select id="serviceType" name="serviceType" required defaultValue="">
-                    <option value="" disabled>Select a service…</option>
+                  <select
+                    id="serviceType"
+                    name="serviceType"
+                    required
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select a service…
+                    </option>
                     <option>Pre-Sale Repairs</option>
                     <option>Door &amp; Window Fixes</option>
                     <option>Painting &amp; Drywall</option>
@@ -167,8 +173,12 @@ export default function Schedule() {
 
               <div className="form-group referral-group">
                 <label>
-                  <input type="checkbox" id="realtorReferral" name="realtorReferral" />
-                  &nbsp;I was referred by a realtor
+                  <input
+                    type="checkbox"
+                    id="realtorReferral"
+                    name="realtorReferral"
+                  />
+                  I was referred by a realtor
                 </label>
               </div>
 
@@ -183,7 +193,9 @@ export default function Schedule() {
                 className="btn-submit"
                 disabled={status === 'submitting'}
               >
-                {status === 'submitting' ? 'Sending…' : 'Request My Free Estimate'}
+                {status === 'submitting'
+                  ? 'Sending…'
+                  : 'Request My Free Estimate'}
               </button>
             </form>
           )}

@@ -5,8 +5,8 @@ const contactItems = [
   {
     icon: '📞',
     label: 'Call or Text',
-    value: '(816) 555-0100', // TODO: replace with real number
-    href: 'tel:+18165550100',
+    value: '(913) 961-1179',
+    href: 'tel:+19139611179',
   },
   {
     icon: '✉️',
@@ -23,7 +23,7 @@ const contactItems = [
   {
     icon: '🕐',
     label: 'Hours',
-    value: 'Mon–Sat: 7am – 7pm',
+    value: 'Call',
     href: null,
   },
 ];
