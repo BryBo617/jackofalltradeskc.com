@@ -13,7 +13,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <span className="brand-icon">🔧</span>
+        <span className="brand-icon">
+          <img src="./hammer-wrench.png" alt="tool" width="20" />
+        </span>
         <span className="brand-name">Jack of All Trades KC</span>
       </div>
       <button

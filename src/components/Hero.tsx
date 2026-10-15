@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="hero-overlay" />
       <div className="hero-content">
         <p className="hero-tagline">Kansas City's Trusted Handyman</p>
-        <h1 className="hero-title">Jack of All Trades KC</h1>
+        <img src="./logo.png" alt="logo" width={500} />
         <p className="hero-subtitle">
           Professional handyman services for home sellers and homeowners.
           Trusted by Kansas City's top realtors to get homes market-ready.
@@ -19,7 +19,10 @@ export default function Hero() {
           <button className="btn-primary" onClick={() => scrollTo('schedule')}>
             Book a Free Estimate
           </button>
-          <button className="btn-secondary" onClick={() => scrollTo('services')}>
+          <button
+            className="btn-secondary"
+            onClick={() => scrollTo('services')}
+          >
             See Our Services
           </button>
         </div>

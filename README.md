@@ -33,8 +33,6 @@ npm run preview    # Preview the production build locally
 ## Environment Variables
 
 | Variable | Description |
-|---|---|
-| `FORMSPREE_ID` | Formspree form ID for the appointment request form (e.g. `xpwzgkjr`). Create a free form at [formspree.io](https://formspree.io) and paste the ID here. Set this in your Vercel project settings under **Settings → Environment Variables**. |
 
 ## Site Sections
 
