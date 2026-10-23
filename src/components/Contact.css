@@ -33,6 +33,13 @@
   font-size: 2rem;
 }
 
+.contact-icon svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
 .contact-label {
   font-size: 0.8rem;
   font-weight: 600;
