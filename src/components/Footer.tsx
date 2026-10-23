@@ -12,7 +12,8 @@ export default function Footer() {
           Serving Kansas City home sellers and realtors with pride.
         </p>
         <p className="footer-copy">
-          &copy; {new Date().getFullYear()} Jack of All Trades KC. All rights reserved.
+          &copy; {new Date().getFullYear()} Jack of All Trades KC. All rights
+          reserved.
         </p>
       </div>
     </footer>
